@@ -7,16 +7,32 @@
 <body>
     <div>
         <h4>In 2015, did people in Europe who saw their friends every week participate more in cultural and sports activites?</h4>
-        <select id="frequencies"></select>
+        <input type="button" value="Get" onclick="participationQuery();" />
+        <table data-role="table" class="ui-responsive" id="query1Table">
+            <thead>
+                <tr>
+                    <th>Region</th>
+                    <th>Percentage of Participation by Region Where People Saw Their Friends A few times a month or more</th>
+                    <th>Percentage of Partifipation by Region Where People saw their friendsless than a few times a month</th>
+                </tr>
+            </thead>
+        </table>
         <hr />
-        <h4>In 2015, which age range participated more in cultural and sports activities?</h4>
+
+
+
+
+
+
+
+        <h4>In 2015, do males or females participate more in cultural and sports activities?</h4>
+        <input type="button" value="Get" onclick="query2Function();" />
         <select id="ages"></select>
         <select id="genders"></select>
         <hr />
         <h4>In 2015, which region participated more in cultural and sports activities?</h4>
         <select id="regions"></select>
         <hr />
-        <h4>In 2015, which region saw their friends more often more in cultural and sports activities?</h4>
 
     </div>
 
