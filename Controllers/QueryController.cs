@@ -100,8 +100,8 @@ namespace ISIT420_Project.Controllers
                                  select new ParticipationData
                                  {
                                      Region = avgRegion.Region,
-                                     Percentage1 = (double)(per.Percentage/100)*((double)avgRegion.Percentage),
-                                     Percentage2 = (double)(less.Percentage/100)*(double)avgRegion.Percentage
+                                     Percentage1 = (Math.Round((double)per.Percentage/100*(double)avgRegion.Percentage, 2)),
+                                     Percentage2 = (Math.Round((double)less.Percentage/100*(double)avgRegion.Percentage, 2))
                                  };
 
             foreach (var p in innerJoinQuery)

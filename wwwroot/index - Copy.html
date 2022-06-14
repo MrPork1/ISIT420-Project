@@ -1,0 +1,67 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>Orders Data</title>
+</head>
+<body>
+    <div>
+        <h4>In 2015, did people in Europe who saw their friends every week participate more in cultural and sports activites?</h4>
+        <input type="button" value="Get" onclick="participationQuery();" />
+        <table data-role="table" class="ui-responsive" id="query1Table">
+            <thead>
+                <tr>
+                    <th>Region</th>
+                    <th>Percentage of Participation by Region Where People Saw Their Friends A few times a month or more</th>
+                    <th>Percentage of Partifipation by Region Where People saw their friendsless than a few times a month</th>
+                </tr>
+            </thead>
+        </table>
+        <hr />
+
+
+
+
+
+
+
+        <h4>In 2015, do males or females participate more in cultural and sports activities?</h4>
+        <input type="button" value="Get" onclick="query2Function();" />
+        <table data-role="table" class="ui-responsive" id="query2Table">
+            <thead>
+                <tr>
+                    <th>Gender</th>
+                    <th>Percentage</th>
+                </tr>
+            </thead>
+        </table>
+        <hr />
+        <h4>In 2015, which region participated more in cultural and sports activities?</h4>
+        <input type="button" value="Get" onclick="query3Function();" />
+        <h3 id="query3Result"></h3>
+        <div id="here">
+            <p></p>
+        </div>
+        <select id="regions" onchange="query3FunctionSelectRegion();"></select>
+        <hr />
+
+        <h4>For each country, what is the percentrage by frequency who saw their friends</h4>
+        <select id="regions2"></select>
+        <select id="frequencies"></select>
+        <input type="button" value="Get" onclick="query4FunctionSelectRegionAndFrequency();" />
+        <table data-role="table" class="ui-responsive" id="query4Table">
+            <thead>
+                <tr>
+                    <th>Region</th>
+                    <th>Percentage</th>
+                    <th>Gender</th>
+                </tr>
+            </thead>
+        </table>
+
+    </div>
+
+    <script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-2.0.3.min.js"></script>
+    <script src="/js/site.js"></script>
+</body>
+</html>
