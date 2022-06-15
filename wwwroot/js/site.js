@@ -53,6 +53,7 @@ function participationQuery() {
         .done(function (data) {
             console.log(data);
             var table = document.getElementById('query1Table');
+
             // creating rows
             for (var r = 0; r < data.length; r++) {
                 var row = document.createElement("tr");
@@ -78,6 +79,16 @@ function query2Function() {
         .done(function (data) {
             console.log(data);
             var table = document.getElementById('query2Table');
+            var tableHeader1 = document.createElement("thead");
+            var tableHeader2 = document.createElement("tr");
+            var tableHeader3 = document.createElement("th");
+            var tableHeader4 = document.createElement("th");
+            tableHeader3.appendChild(document.createTextNode("Gender"));
+            tableHeader4.appendChild(document.createTextNode("Percentage"));
+            table.appendChild(tableHeader1);
+            tableHeader1.appendChild(tableHeader2);
+            tableHeader2.appendChild(tableHeader3);
+            tableHeader2.appendChild(tableHeader4);
             // creating rows
             for (var r = 0; r < data.length; r++) {
                 var row = document.createElement("tr");
@@ -113,6 +124,7 @@ function query3FunctionSelectRegion() {
     $.getJSON('api/Query3' + '/' + regionValue)
         .done(function (data) {
             console.log(data);
+            $('#query3Result').text("");
             $('#query3Result').text(data)
         })
         .fail(function (jqXHR, textStatus, err) {

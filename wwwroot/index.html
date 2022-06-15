@@ -1,123 +1,112 @@
 ﻿<!DOCTYPE html>
 <html>
 <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-
-    <title>Elegant Template By W3 Template</title>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" crossorigin="anonymous">
-    <link rel="stylesheet" type="text/css" href="css/style.css" />
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/all.css" integrity="sha384-lKuwvrZot6UHsBSfcMvOkWwlCMgc0TaWr+30HWe3a4ltaBwTZhyTEggF5tJv8tbt" crossorigin="anonymous">
-    <link rel="stylesheet" type="text/css" href="css/jquery.fancybox.min.css" />
-    <link rel="stylesheet" type="text/css" href="css/owl.carousel.min.css" />
-    <link rel="stylesheet" type="text/css" href="css/owl.theme.default.min.css" />
-
-    <!-- Font Google -->
-    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700,800" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700" rel="stylesheet">
-
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="utf-8" />
+    <title>ISIT 420 - Final Project</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
 </head>
-
 <body>
-    
-
-    <div class="banner text-center" data-scroll-index='0'>
-        <div class="banner-overlay">
-            <div class="container">
-                <h1 class="text-capitalize">Best Template for Creative Business</h1>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque nec justo rhoncus, pharetra dui ut, cursus turpis. Aenean tincidunt vitae ligula eget congue.</p>
-                <a href="#" class="banner-btn">Get Started</a>
-            </div>
-        </div>
-    </div>
-
-    <!-- End Banner Image -->
-    <!-- About -->
-
-    <div class="about-us section-padding" data-scroll-index='1'>
-        <div class="container">
-            <div class="row">
-                <div class="col-md-12 section-title text-center">
-                    <span class="section-title-line"></span>
-                </div>
-                <div class="col-md-6 mb-50">
-                    <div class="section-info">
-                        <div class="sub-title-paragraph">
-                            <title>Orders Data</title>
-
-                            <div>
-                                <h4>In 2015, did people in Europe who saw their friends every week participate more in cultural and sports activites?</h4>
-                                <input type="button" value="Get" onclick="participationQuery();" />
-                                <table data-role="table" class="ui-responsive" id="query1Table">
-                                    <thead>
-                                        <tr>
-                                            <th>Region</th>
-                                            <th>% of Participation by Region Where People Saw Their Friends A few times a month or more</th>
-                                            <th>% of Participation by Region Where People saw their friendsless than a few times a month</th>
-                                        </tr>
-                                    </thead>
-                                </table>
-                                <hr />
-
-
-
-                                <!-- ED7031 -->
-
-
-
-                                <h4>In 2015, do males or females participate more in cultural and sports activities?</h4>
-                                <input type="button" value="Get" onclick="query2Function();" />
-                                <table data-role="table" class="ui-responsive" id="query2Table">
-                                    <thead>
-                                        <tr>
-                                            <th>Gender</th>
-                                            <th>Percentage</th>
-                                        </tr>
-                                    </thead>
-                                </table>
-                                <hr />
-                                <h4>In 2015, which region participated more in cultural and sports activities?</h4>
-                                <!--<input type="button" value="Get" onclick="query3Function();" class="anchor-btn" />-->
-                                <h3 id="query3Result"></h3>
-                                <div id="here">
-                                    <p></p>
-                                </div>
-                                <h5>Region: </h5><select id="regions" onchange="query3FunctionSelectRegion();"></select>
-                                <hr />
-
-                                <h4>For each country, what is the percentrage by frequency who saw their friends?</h4>
-                                <h5>Region: </h5><select id="regions2"></select>
-                                <h5>Frequency: </h5><select id="frequencies"></select>
-                                <br />
-                                <input type="button" value="Get" onclick="query4FunctionSelectRegionAndFrequency();" class="anchor-btn" />
-                                <table data-role="table" class="ui-responsive" id="query4Table">
-                                    <thead>
-                                        <tr>
-                                            <th>Region</th>
-                                            <th>Percentage</th>
-                                            <th>Gender</th>
-                                        </tr>
-                                    </thead>
-                                </table>
-
-                            </div>
-
-                        </div>
-                        <!--<a href="#" class="anchor-btn">Learn more <i class="fas fa-arrow-right pd-lt-10"></i></a>-->
+    <div class="container-fluid" style="border: solid; background-image: linear-gradient(to right, rgba(255,0,0,0), rgba(51,122,183,1))">
+        <h1>ISIT 420 - Final Project</h1>
+        <div class="float-left">
+            <div class="panel-group">
+                <div class="panel panel-primary">
+                    <div class="panel-heading"><strong>In 2015, did people in Europe who saw their friends every week participate more in cultural and sports activites?</strong></div>
+                    <div class="panel-body">
+                        <!--<h4>In 2015, did people in Europe who saw their friends every week participate more in cultural and sports activites?</h4>-->
+                        <input type="button" value="Get" onclick="participationQuery();" class="btn btn-warning" />
+                        <a class="btn btn-success" data-bs-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample">
+                            Graph
+                        </a>
+                        <table data-role="table" class="table" id="query1Table">
+                            <thead>
+                                <tr>
+                                    <th>Region</th>
+                                    <th>Percentage of Participation by Region Where People Saw Their Friends A few times a month or more</th>
+                                    <th>Percentage of Partifipation by Region Where People saw their friendsless than a few times a month</th>
+                                </tr>
+                            </thead>
+                        </table>
                     </div>
                 </div>
-                <div class="col-md-6 mb-50">
-                    <div class="section-img"> <img src="images/graph.png" alt="" class="img-responsive" /> </div>
+            </div>
+        </div>
+
+        <div class="collapse" id="collapseExample">
+            <div class="float-left">
+                <div class="panel-group">
+                    <div class="panel panel-success">
+                        <div class="panel-heading"><strong>Graph</strong></div>
+                        <div class="panel-body">
+                            <div class="container">
+                                <img src="images/graph.png" class="img-fluid" />
+                                <!--<canvas id="myChart" width="400" height="400"></canvas>-->
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
+
+        <div class="float-left">
+            <div class="panel-group">
+                <div class="panel panel-primary">
+                    <div class="panel-heading"><strong>In 2015, do males or females participate more in cultural and sports activities?</strong></div>
+                    <div class="panel-body">
+                        <!--<h4>In 2015, do males or females participate more in cultural and sports activities?</h4>-->
+                        <input type="button" value="Get" onclick="query2Function();" class="btn btn-warning" />
+                        <table data-role="table" class="table" id="query2Table">
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="float-left">
+            <div class="panel-group">
+                <div class="panel panel-primary">
+                    <div class="panel-heading"><strong>In 2015, which region participated more in cultural and sports activities?</strong></div>
+                    <div class="panel-body">
+                        <!--<h4>In 2015, which region participated more in cultural and sports activities?</h4>-->
+                        <!--<input type="button" value="Get" onclick="query3Function();" />-->
+                        <h3 id="query3Result"></h3>
+                        <select id="regions" onchange="query3FunctionSelectRegion();"></select>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="float-left">
+            <div class="panel-group">
+                <div class="panel panel-primary">
+                    <div class="panel-heading"><strong>For each country, what is the percentrage by frequency who saw their friends?</strong></div>
+                    <div class="panel-body">
+                        <!--<h4>For each country, what is the percentrage by frequency who saw their friends?</h4>-->
+                        <h5>Region: </h5><select id="regions2"></select>
+                        <h5>Frequency: </h5><select id="frequencies"></select>
+                        <input type="button" value="Get" onclick="query4FunctionSelectRegionAndFrequency();" class="btn btn-warning" />
+                        <table data-role="table" class="table" id="query4Table">
+                            <thead>
+                                <tr>
+                                    <th>Region</th>
+                                    <th>Percentage</th>
+                                    <th>Gender</th>
+                                </tr>
+                            </thead>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+
     </div>
 
-
-
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js" integrity="sha384-smHYKdLADwkXOn1EmN1qk/HfnUcbVRZyYmZ4qpPea6sjB/pTJ0euyQp0Mk8ck+5T" crossorigin="anonymous"></script>
-    <!--<script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-2.0.3.min.js"></script>-->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-2.0.3.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@3.8.0/dist/chart.min.js"></script>
     <script src="/js/site.js"></script>
 </body>
 </html>
+
