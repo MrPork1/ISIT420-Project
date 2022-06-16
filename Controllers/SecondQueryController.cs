@@ -24,11 +24,6 @@ namespace ISIT420_Project.Controllers
             var genderQuery = from each in context.GenderTables
                               select each;
 
-            //var mainQuery = from each in context.ParticipationTables
-            //                join per in context.GenderTables on each.GenderId equals per.GenderId
-            //                select each;
-            //var result = mainQuery.ToList();
-
             var innerJoinQuery = from joined1 in paticipationQuery
                                  join joined2 in genderQuery on joined1.Gender equals joined2.GenderId
                                  select new Data
@@ -39,24 +34,6 @@ namespace ISIT420_Project.Controllers
 
 
             var result2 = innerJoinQuery.ToList();
-
-            //foreach (var item in result2)
-            //{
-            //    Debug.WriteLine("Gender: " + item.Gender + " Percentage: " + item.Percentage);
-            //}
-
-            //List<Data> list = new List<Data>();
-
-            ////GenderTable genderTable = new GenderTable();
-
-
-            //foreach (var item in result2)
-            //{
-            //    Data newData = new Data();
-            //    newData.Gender = (int)item.Gender;
-            //    newData.Percentage = (double)item.Percentage;
-            //    list.Add(newData);
-            //}
 
             return result2;
         }

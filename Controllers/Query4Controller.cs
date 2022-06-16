@@ -23,6 +23,10 @@ namespace ISIT420_Project.Controllers
                                 GenderId = (int)each.GenderId
                             };
 
+
+            var genderQuery = from each in context.GenderTables
+                              select each;
+
             var result = mainQuery.ToList();
 
             Debug.WriteLine(result[0].Region + result[0].Percentage);
