@@ -15,25 +15,24 @@ namespace ISIT420_Project.Controllers
         {
             var context = new Models.SocialDBContext();
 
+
             var paticipationQuery = context.ParticipationTables.GroupBy(r => r.GenderId, p => p.Percentage).Select(r => new
             {
-                Gender = r.Key,
+                GenderId = r.Key,
                 Percentage = r.Average()
             });
 
-            var genderQuery = from each in context.GenderTables
-                              select each;
-
-            var innerJoinQuery = from joined1 in paticipationQuery
-                                 join joined2 in genderQuery on joined1.Gender equals joined2.GenderId
+            var genderQuery = from joined1 in context.GenderTables
+                              join joined2  in paticipationQuery on joined1.GenderId equals joined2.GenderId
                                  select new Data
                                  {
-                                     Gender = joined2.Gender,
-                                     Percentage = Math.Round((double)joined1.Percentage,2)
+                                     Gender = joined1.Gender,
+                                     Percentage = Math.Round((double)joined2.Percentage, 2)
                                  };
+          
 
 
-            var result2 = innerJoinQuery.ToList();
+            var result2 = genderQuery.ToList();
 
             return result2;
         }

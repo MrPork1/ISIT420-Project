@@ -46,6 +46,13 @@
                 selectID.appendChild(new Option(value.region, value.id));
             });
         });
+
+        $.getJSON('api/Query3')
+            .done(function (data) {
+                console.log(data);
+                var result = document.getElementById('query3Result');
+                result.innerHTML = ("Highest: " + data.region + " " + data.percentage);
+            });
 });
 
 function participationQuery() {
@@ -106,14 +113,7 @@ function query2Function() {
         })
 }
 
-function query3Function() {
-    $.getJSON('api/Query3')
-        .done(function (data) {
-            console.log(data);
-            var result = document.getElementById('query3Result');
-            result.innerHTML = (data.region + " " + data.percentage);
-        });
-}
+
 
 function query3FunctionSelectRegion() {
 
@@ -124,11 +124,11 @@ function query3FunctionSelectRegion() {
     $.getJSON('api/Query3' + '/' + regionValue)
         .done(function (data) {
             console.log(data);
-            $('#query3Result').text("");
-            $('#query3Result').text(data)
+            $('#query3Result2').text("");
+            $('#query3Result2').text(data)
         })
         .fail(function (jqXHR, textStatus, err) {
-            $('#query3Result').text('Error');
+            $('#query3Result2').text('Error');
         });
 }
 
@@ -158,7 +158,7 @@ function query4FunctionSelectRegionAndFrequency() {
                 row.appendChild(cell0);
                 cell1.appendChild(document.createTextNode(data[r].percentage));
                 row.appendChild(cell1);
-                cell2.appendChild(document.createTextNode(data[r].genderId));
+                cell2.appendChild(document.createTextNode(data[r].gender));
                 row.appendChild(cell2);
 
                 table.appendChild(row); // add the row to the end of the table body
