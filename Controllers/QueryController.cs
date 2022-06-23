@@ -10,6 +10,7 @@ namespace ISIT420_Project.Controllers
     [Produces("application/json")]
     public class QueryController : Controller
     {
+        //Did people who saw their friends a few times a month participate more in sports and cultural activities?
         [HttpGet]
         public List<ParticipationData> Get()
         {
@@ -25,7 +26,7 @@ namespace ISIT420_Project.Controllers
                 Percentage = r.Average()
             });
 
-
+            //A few times a month or more
             var friendsTableFrequency = from each in context.FriendsTables
                               where each.FrequencyId == 2 || each.FrequencyId == 5 || each.FrequencyId == 6
                               select each;
@@ -38,6 +39,7 @@ namespace ISIT420_Project.Controllers
                 Percentage = r.Average()
             });
 
+            //Less than a few times a month
             var friendsTableFrequency2 = from each in context.FriendsTables
                               where each.FrequencyId == 1 || each.FrequencyId == 3 || each.FrequencyId == 4 || each.FrequencyId == 7
                               select each;
@@ -48,6 +50,7 @@ namespace ISIT420_Project.Controllers
                 Percentage = r.Average()
             });
 
+            //Inner join on region
             var innerJoinQuery = from avgRegion in averageByRegion
                                  join per in friendsTableAverageByRegionPercentage on avgRegion.Region equals per.Region
                                  join less in averageByLessFrequencies on per.Region equals less.Region

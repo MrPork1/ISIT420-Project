@@ -6,7 +6,7 @@
             let dataArray = data;
             let selectID = document.getElementById("frequencies");
             dataArray.forEach(function (value) {
-                selectID.appendChild(new Option(value.frequency, value.frequencyId));
+                selectID.appendChild(new Option(value.frequency, value.id));
             });
 
         });
@@ -51,32 +51,71 @@
             .done(function (data) {
                 console.log(data);
                 var result = document.getElementById('query3Result');
-                result.innerHTML = ("Highest: " + data.region + " " + data.percentage);
+                //result.innerHTML = ("Highest: " + data.region + " " + data.percentage);
+                result.innerHTML = "Highest: " + data
             });
 });
+
+function deleteTable1() {
+    $('#query1Table tr').slice(1).remove();
+    var table = document.getElementById('query1Table');
+    var hidden = table.getAttribute("hidden");
+    if (!hidden) {
+        table.setAttribute("hidden", "hidden");
+    }
+}
+
+function deleteTable2() {
+    $('#query2Table tr').slice(1).remove();
+    var table = document.getElementById('query2Table');
+    var hidden = table.getAttribute("hidden");
+    if (!hidden) {
+        table.setAttribute("hidden", "hidden");
+    }
+}
+
+function deleteTable3() {
+    $('#query1Table tr').slice(1).remove();
+    var table = document.getElementById('query1Table');
+    var hidden = table.getAttribute("hidden");
+    if (!hidden) {
+        table.setAttribute("hidden", "hidden");
+    }
+}
+
+function deleteTable4() {
+    $('#query4Table tr').slice(1).remove();
+    var table = document.getElementById('query4Table');
+    var hidden = table.getAttribute("hidden");
+}
 
 function participationQuery() {
     $.getJSON('api/Query')
         .done(function (data) {
             console.log(data);
             var table = document.getElementById('query1Table');
+            var hidden = table.getAttribute("hidden");
+            if (hidden) {
+                table.removeAttribute("hidden");
+                // creating rows
+                for (var r = 0; r < data.length; r++) {
+                    var row = document.createElement("tr");
 
-            // creating rows
-            for (var r = 0; r < data.length; r++) {
-                var row = document.createElement("tr");
+                    var cell0 = document.createElement("td");
+                    var cell1 = document.createElement("td");
+                    var cell2 = document.createElement("td");
 
-                var cell0 = document.createElement("td");
-                var cell1 = document.createElement("td");
-                var cell2 = document.createElement("td");
+                    cell0.appendChild(document.createTextNode(data[r].region));
+                    row.appendChild(cell0);
+                    cell1.appendChild(document.createTextNode(data[r].percentage1));
+                    row.appendChild(cell1);
+                    cell2.appendChild(document.createTextNode(data[r].percentage2));
+                    row.appendChild(cell2);
 
-                cell0.appendChild(document.createTextNode(data[r].region));
-                row.appendChild(cell0);
-                cell1.appendChild(document.createTextNode(data[r].percentage1));
-                row.appendChild(cell1);
-                cell2.appendChild(document.createTextNode(data[r].percentage2));
-                row.appendChild(cell2);
-
-                table.appendChild(row); // add the row to the end of the table body
+                    table.appendChild(row); // add the row to the end of the table body
+                }
+            } else {
+                deleteTable1();
             }
         })
 }
@@ -86,34 +125,27 @@ function query2Function() {
         .done(function (data) {
             console.log(data);
             var table = document.getElementById('query2Table');
-            var tableHeader1 = document.createElement("thead");
-            var tableHeader2 = document.createElement("tr");
-            var tableHeader3 = document.createElement("th");
-            var tableHeader4 = document.createElement("th");
-            tableHeader3.appendChild(document.createTextNode("Gender"));
-            tableHeader4.appendChild(document.createTextNode("Percentage"));
-            table.appendChild(tableHeader1);
-            tableHeader1.appendChild(tableHeader2);
-            tableHeader2.appendChild(tableHeader3);
-            tableHeader2.appendChild(tableHeader4);
-            // creating rows
-            for (var r = 0; r < data.length; r++) {
-                var row = document.createElement("tr");
+            var hidden = table.getAttribute("hidden");
+            if (hidden) {
+                table.removeAttribute("hidden");
+                for (var r = 0; r < data.length; r++) {
+                    var row = document.createElement("tr");
 
-                var cell0 = document.createElement("td");
-                var cell1 = document.createElement("td");
+                    var cell0 = document.createElement("td");
+                    var cell1 = document.createElement("td");
 
-                cell0.appendChild(document.createTextNode(data[r].gender));
-                row.appendChild(cell0);
-                cell1.appendChild(document.createTextNode(data[r].percentage));
-                row.appendChild(cell1);
+                    cell0.appendChild(document.createTextNode(data[r].gender));
+                    row.appendChild(cell0);
+                    cell1.appendChild(document.createTextNode(data[r].percentage));
+                    row.appendChild(cell1);
 
-                table.appendChild(row); // add the row to the end of the table body
+                    table.appendChild(row); // add the row to the end of the table body
+                }
+            } else {
+                deleteTable2();
             }
         })
 }
-
-
 
 function query3FunctionSelectRegion() {
 
@@ -146,23 +178,26 @@ function query4FunctionSelectRegionAndFrequency() {
         .done(function (data) {
             console.log(data);
             var table = document.getElementById('query4Table');
-            // creating rows
-            for (var r = 0; r < data.length; r++) {
-                var row = document.createElement("tr");
+            var hidden = table.getAttribute("hidden");
+                deleteTable4();
+                table.removeAttribute("hidden");
+                // creating rows
+                for (var r = 0; r < data.length; r++) {
+                    var row = document.createElement("tr");
 
-                var cell0 = document.createElement("td");
-                var cell1 = document.createElement("td");
-                var cell2 = document.createElement("td");
+                    var cell0 = document.createElement("td");
+                    var cell1 = document.createElement("td");
+                    var cell2 = document.createElement("td");
 
-                cell0.appendChild(document.createTextNode(data[r].region));
-                row.appendChild(cell0);
-                cell1.appendChild(document.createTextNode(data[r].percentage));
-                row.appendChild(cell1);
-                cell2.appendChild(document.createTextNode(data[r].gender));
-                row.appendChild(cell2);
+                    cell0.appendChild(document.createTextNode(data[r].region));
+                    row.appendChild(cell0);
+                    cell1.appendChild(document.createTextNode(data[r].percentage));
+                    row.appendChild(cell1);
+                    cell2.appendChild(document.createTextNode(data[r].gender));
+                    row.appendChild(cell2);
 
-                table.appendChild(row); // add the row to the end of the table body
-            }
+                    table.appendChild(row); // add the row to the end of the table body
+                }
         })
         .fail(function (jqXHR, textStatus, err) {
         });

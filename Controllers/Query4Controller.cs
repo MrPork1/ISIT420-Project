@@ -10,6 +10,7 @@ namespace ISIT420_Project.Controllers
     [Produces("application/json")]
     public class Query4Controller : Controller
     {
+        //In Europe in 2015, what is the percentage by frequency of people who saw their friends
         [HttpGet("{id}/{id2}")]
         public List<Query4Data> Get(string id, string id2)
         {
@@ -44,8 +45,8 @@ namespace ISIT420_Project.Controllers
     {
         public string Region { get; set; }
 
-    public string Gender { get; set; }
-    public double Percentage { get; set; }
+        public string Gender { get; set; }
+        public double Percentage { get; set; }
         public int GenderId { get; set; }
     }
 }

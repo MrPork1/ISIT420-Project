@@ -11,6 +11,7 @@ namespace ISIT420_Project.Controllers
         public IEnumerable<AgeTable> Get()
         {
             var context = new Models.SocialDBContext();
+
             return context.AgeTables.ToList();
         }
     }

@@ -34,7 +34,6 @@ namespace ISIT420_Project.Controllers
                 regionList.Add(newData);
             }
 
-
             return regionList;
         }
     }
@@ -44,6 +43,5 @@ namespace ISIT420_Project.Controllers
         public int Id { get; set; }
 
         public string Region { get; set; }
-
     }
 }

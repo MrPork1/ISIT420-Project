@@ -23,7 +23,7 @@
                         <a class="btn btn-success" data-bs-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample">
                             Graph
                         </a>
-                        <table data-role="table" class="table" id="query1Table">
+                        <table data-role="table" class="table" id="query1Table" hidden="hidden">
                             <thead>
                                 <tr>
                                     <th>Region</th>
@@ -60,7 +60,13 @@
                     <div class="panel-body">
                         <!--<h4>In 2015, do males or females participate more in cultural and sports activities?</h4>-->
                         <input type="button" value="Get" onclick="query2Function();" class="btn btn-warning" />
-                        <table data-role="table" class="table" id="query2Table">
+                        <table data-role="table" class="table" id="query2Table" hidden="hidden">
+                            <thead>
+                                <tr>
+                                    <th>Gender</th>
+                                    <th>Percentage</th>
+                                </tr>
+                            </thead>
                         </table>
                     </div>
                 </div>
@@ -91,7 +97,7 @@
                         <h5>Region: </h5><select id="regions2"></select>
                         <h5>Frequency: </h5><select id="frequencies"></select>
                         <input type="button" value="Get" onclick="query4FunctionSelectRegionAndFrequency();" class="btn btn-warning" />
-                        <table data-role="table" class="table" id="query4Table">
+                        <table data-role="table" class="table" id="query4Table" hidden="hidden">
                             <thead>
                                 <tr>
                                     <th>Region</th>
@@ -105,7 +111,7 @@
             </div>
         </div>
 
-        <p style="color: #3379b7">Copyright © 2022 Kurray Designs. </p>
+        <p style="color: #3379b7; font-size:10px">Copyright © 2022 Kurray Designs. </p>
     </div>
 
 

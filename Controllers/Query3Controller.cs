@@ -10,8 +10,9 @@ namespace ISIT420_Project.Controllers
     [Produces("application/json")]
     public class Query3Controller : Controller
     {
+        //In Europe in 2015, which region participated more in sports and cultural activities? (Highest)
         [HttpGet]
-        public RegionData2 Get()
+        public string Get()
         {
             var context = new Models.SocialDBContext();
             var mainQuery = from each in context.ParticipationTables
@@ -24,7 +25,7 @@ namespace ISIT420_Project.Controllers
                 Percentage = r.Average()
             });
 
-            var result1 = averageByRegion.OrderByDescending(a => a.Percentage);
+            //var result1 = averageByRegion.OrderByDescending(a => a.Percentage);
 
             var mainResult = averageByRegion.OrderByDescending(a => a.Percentage).ToList();
 
@@ -32,9 +33,19 @@ namespace ISIT420_Project.Controllers
             newRegionData.Region = mainResult[0].Region;
             newRegionData.Percentage = (double)mainResult[0].Percentage;
 
-            return newRegionData;
+            if (newRegionData != null)
+            {
+                return newRegionData.Region + " at " + newRegionData.Percentage + "%";
+            }
+            else
+            {
+                return "no id";
+            }
+
+            //return newRegionData;
         }
 
+        //In Europe in 2015, which region participated more in sports and cultural activities? (Select)
         [HttpGet("{id}")]
         public string Get(string id)
         {
@@ -66,7 +77,7 @@ namespace ISIT420_Project.Controllers
 
             if (query != null)
             {
-                return newRegionData.Region + " " + newRegionData.Percentage;
+                return newRegionData.Region + " at " + newRegionData.Percentage + "%";
             }
             else
             {

@@ -10,6 +10,7 @@ namespace ISIT420_Project.Controllers
     [Produces("application/json")]
     public class SecondQueryController : Controller
     {
+        //In Europe in 2015, did males or females participate more in cultural and sports activities?
         [HttpGet]
         public List<Data> Get()
         {
